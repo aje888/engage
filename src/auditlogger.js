@@ -4,29 +4,20 @@ require('winston-daily-rotate-file');
 
 const myCustomLevels = {
   levels: {
-    error: 0, 
-    warn: 1, 
-    info: 2, 
-    verbose: 3, 
-    debug: 4, 
-    silly: 5
+    audit: 0,
   },
   colors: {
-    error: 'red', 
-    warn: 'orange', 
-    info: 'white', 
-    verbose: 'yellow', 
-    debug: 'green', 
-    silly: 'grey'
+    audit: 'blue'
   }
 };
+
 
 const myFormat = format.printf((info) => {
   return `[${info.level}] ${info.timestamp} - ${info.message}`;
 })
 
 // Configure the Winston logger. For the complete documentation see https://github.com/winstonjs/winston
-const logger = createLogger({
+const auditlogger = createLogger({
   levels: myCustomLevels.levels,
   format: format.combine(
     format.timestamp(),
@@ -38,8 +29,8 @@ const logger = createLogger({
     // - Write to all logs with level `info` and below to `combined.log` 
     // - Write all logs error (and below) to `error.log`.
     //
-    new transports.DailyRotateFile({ filename: 'error-%DATE%.log', dirname: './logs', datePattern: 'YYYY-MM-DD', zippedArchive: true, maxFiles: '14d', level: 'error' }),
-    new transports.DailyRotateFile({ filename: 'debug-%DATE%.log', dirname: './logs', datePattern: 'YYYY-MM-DD', zippedArchive: true, maxFiles: '14d', level: 'debug' })  ],
+    new transports.DailyRotateFile({ filename: 'audit-%DATE%.log', dirname: './logs', datePattern: 'YYYY-MM-DD', zippedArchive: true, maxFiles: '14d', level: 'audit' })
+  ],
 });
 
 addColors(myCustomLevels.colors);
@@ -49,8 +40,8 @@ addColors(myCustomLevels.colors);
 // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
 // 
 if (process.env.NODE_ENV !== 'production') {
-  logger.add(new transports.Console({
-  level: 'silly',
+  auditlogger.add(new transports.Console({
+  level: 'audit',
   format: format.combine(
     format.timestamp(),
     myFormat,
@@ -59,4 +50,4 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-module.exports = logger;
+module.exports = auditlogger;
