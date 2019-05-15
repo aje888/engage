@@ -1,8 +1,8 @@
-
+const auditActivity = require('../../hooks/audit-activity');
 
 module.exports = {
   before: {
-    all: [],
+    all: [auditActivity()],
     find: [],
     get: [],
     create: [],
