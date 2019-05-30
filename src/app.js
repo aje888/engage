@@ -9,7 +9,7 @@ const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
-
+const swagger = require('feathers-swagger');
 
 const logger = require('./logger');
 const auditlogger = require('./auditlogger');
@@ -48,6 +48,19 @@ app.configure(socketio(socketio_middleware));
 
 // Configure other middleware (see `middleware/index.js`)
 app.configure(express_middleware);
+
+app.configure(swagger({
+    docsPath: '/docs',
+    uiIndex: true,
+    specs: {
+      info: {
+        title: 'Community Hub API',
+        description: 'A description',
+        version: '0.0.1',
+      },
+    },
+  }));
+
 // Set up our services (see `services/index.js`)
 app.configure(services);
 // Set up event channels (see channels.js)
