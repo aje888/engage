@@ -1,11 +1,13 @@
 const auditActivity = require('../../hooks/audit-activity');
 
+const validateActivity = require('../../hooks/validate-activity');
+
 module.exports = {
   before: {
     all: [auditActivity()],
     find: [],
     get: [],
-    create: [],
+    create: [validateActivity()],
     update: [],
     patch: [],
     remove: []

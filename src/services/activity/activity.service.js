@@ -1,10 +1,12 @@
 // Initializes the `activity` service on path `/activity`
 const createService = require('feathers-nedb');
-const createModel = require('../../models/activity.model');
+const model = require('../../models/activity.model');
 const hooks = require('./activity.hooks');
+const db = require('mongoose');
+const m2s = require('mongoose-to-swagger');
 
 module.exports = function (app) {
-  const Model = createModel(app);
+  const Model = model.createModel(app);
   const paginate = app.get('paginate');
 
   const options = {
@@ -14,6 +16,8 @@ module.exports = function (app) {
 
   const activityService = createService(options);
 
+  const swaggerSchema = m2s(model.schema);
+
   // swagger spec for this service, see http://swagger.io/specification/
   activityService.docs = {
     description: 'A service to send and receive activities',
@@ -21,22 +25,7 @@ module.exports = function (app) {
       'activity_list': {
         $ref: '#/definitions/activity'
       },
-      activity: {
-        "type": "object",
-        "required": [
-          "text"
-        ],
-        "properties": {
-          "text": {
-            "type": "string",
-            "description": "The message text"
-          },
-          "userId": {
-            "type": "string",
-            "description": "The id of the user that sent the message"
-          }
-        }
-      }
+      activity: swaggerSchema
     }
   };
 
@@ -47,4 +36,6 @@ module.exports = function (app) {
   const service = app.service('activity');
 
   service.hooks(hooks);
+
+  service.schema = model.schema;
 };
