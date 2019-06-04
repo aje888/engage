@@ -27,27 +27,27 @@ module.exports = function (app) {
     },
     operations: {
       find: {
-        summary: 'FIND',
+        summary: 'Search for e-mail reminders.',
         operationId: 'findEmailReminder'
       },
       get: {
-        summary: 'GET',
+        summary: 'Get an e-mail reminder by id.',
         operationId: 'getEmailReminderById'
       },
       create: {
-        summary: 'POST',
+        summary: 'Create a new e-mail reminder.',
         operationId: 'createEmailReminder'
       },
       update: {
-        summary: 'PUT',
+        summary: 'Update an e-mail reminder by id.',
         operationId: 'updateEmailReminderById'
       },
       remove: {
-        summary: 'DELETE',
+        summary: 'Delete an e-mail reminder by id.',
         operationId: 'deleteEmailReminderById'
       },
       patch: {
-        summary: 'PATCH',
+        summary: 'Patch (merge update) an e-mail reminder by id.',
         operationId: 'patchEmailReminderById'
       }
     }

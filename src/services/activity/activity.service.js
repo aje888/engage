@@ -29,27 +29,27 @@ module.exports = function (app) {
     },
     operations: {
       find: {
-        summary: 'FIND',
+        summary: 'Search for an activity.',
         operationId: 'findActivity'
       },
       get: {
-        summary: 'GET',
+        summary: 'Get an activity by id.',
         operationId: 'getActivityById'
       },
       create: {
-        summary: 'POST',
+        summary: 'Create a new activity.',
         operationId: 'createActivity'
       },
       update: {
-        summary: 'PUT',
+        summary: 'Update an activity by id.',
         operationId: 'updateActivityById'
       },
       remove: {
-        summary: 'DELETE',
+        summary: 'Delete an activity by id.',
         operationId: 'deleteActivityById'
       },
       patch: {
-        summary: 'PATCH',
+        summary: 'Patch (merge update) an activity by id.',
         operationId: 'patchActivityById'
       }
     }
