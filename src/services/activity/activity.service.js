@@ -26,6 +26,27 @@ module.exports = function (app) {
         $ref: '#/definitions/activity'
       },
       activity: swaggerSchema
+    },
+    operations: {
+      find: {
+        summary: 'FIND'
+      },
+      get: {
+        summary: 'GET'
+      },
+      create: {
+        summary: 'POST'
+      },
+      update: {
+        summary: 'PUT'
+      },
+      remove: {
+        summary: 'DELETE'
+      },
+      patch: {
+        summary: 'PATCH'
+      },
+      
     }
   };
 
