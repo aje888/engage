@@ -41,6 +41,7 @@ module.exports = function (app) { // eslint-disable-line no-unused-vars
       req.feathers.userName = 'Anonymous';
     }
 
+/*
     // If this is a @capgemini.com user or the grumbl api service account.
     if( ! req.feathers.userName.includes('@capgemini.com') ) {
 
@@ -52,12 +53,12 @@ module.exports = function (app) { // eslint-disable-line no-unused-vars
       res.send("User >" + req.feathers.userName + "< denied. ");
     }
     else {
-
+*/
       logger.debug("User Id: [" + req.feathers.userId + "]. User name: [" + req.feathers.userName + "] allowed.")
 
       next();
-    }
-
+/*    }
+*/
   });
 
   app.post('/file_upload', upload.array('uploads'), function (req, res, next) {
