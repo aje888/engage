@@ -51,6 +51,7 @@ app.configure(express_middleware);
 
 app.configure(swagger({
     docsPath: '/docs',
+    docsJsonPath: '/docs_json',
     uiIndex: true,
     specs: {
       info: {
