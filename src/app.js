@@ -59,7 +59,8 @@ app.configure(swagger({
         description: 'A description',
         version: '0.0.1',
       },
-      host: 'capcsrweb.azurewebsites.net'
+      host: 'capcsrweb.azurewebsites.net',
+      schemes: ['https']
     },
   }));
 
