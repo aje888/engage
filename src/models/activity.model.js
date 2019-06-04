@@ -12,7 +12,7 @@ module.exports = {
 
     return Model;
   },
-  schema: db.model('Activity', new db.Schema({
+  schema: db.model('activity', new db.Schema({
       Name: {
         type: "String",
         required: [true, 'Activity must have name.'],
