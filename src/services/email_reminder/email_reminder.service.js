@@ -24,6 +24,32 @@ module.exports = function (app) {
         $ref: '#/definitions/email-reminder'
       },
       'email-reminder': swaggerSchema
+    },
+    operations: {
+      find: {
+        summary: 'FIND',
+        operationId: 'findEmailReminder'
+      },
+      get: {
+        summary: 'GET',
+        operationId: 'getEmailReminderById'
+      },
+      create: {
+        summary: 'POST',
+        operationId: 'createEmailReminder'
+      },
+      update: {
+        summary: 'PUT',
+        operationId: 'updateEmailReminderById'
+      },
+      remove: {
+        summary: 'DELETE',
+        operationId: 'deleteEmailReminderById'
+      },
+      patch: {
+        summary: 'PATCH',
+        operationId: 'patchEmailReminderById'
+      }
     }
   };
 

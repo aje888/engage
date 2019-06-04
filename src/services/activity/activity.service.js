@@ -29,24 +29,29 @@ module.exports = function (app) {
     },
     operations: {
       find: {
-        summary: 'FIND'
+        summary: 'FIND',
+        operationId: 'findActivity'
       },
       get: {
-        summary: 'GET'
+        summary: 'GET',
+        operationId: 'getActivityById'
       },
       create: {
-        summary: 'POST'
+        summary: 'POST',
+        operationId: 'createActivity'
       },
       update: {
-        summary: 'PUT'
+        summary: 'PUT',
+        operationId: 'updateActivityById'
       },
       remove: {
-        summary: 'DELETE'
+        summary: 'DELETE',
+        operationId: 'deleteActivityById'
       },
       patch: {
-        summary: 'PATCH'
-      },
-      
+        summary: 'PATCH',
+        operationId: 'patchActivityById'
+      }
     }
   };
 
