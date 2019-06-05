@@ -53,6 +53,7 @@ app.configure(swagger({
     docsPath: '/docs',
     docsJsonPath: '/docs_json',
     uiIndex: true,
+    idType: 'string',
     specs: {
       info: {
         title: 'Community Hub API',
