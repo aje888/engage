@@ -2,6 +2,8 @@ const auditActivity = require('../../hooks/audit-activity');
 
 const validateActivity = require('../../hooks/validate-activity');
 
+const addEventsToActivity = require('../../hooks/add-events-to-activity');
+
 module.exports = {
   before: {
     all: [auditActivity()],
@@ -15,11 +17,11 @@ module.exports = {
 
   after: {
     all: [],
-    find: [],
-    get: [],
-    create: [],
-    update: [],
-    patch: [],
+    find: [addEventsToActivity()],
+    get: [addEventsToActivity()],
+    create: [addEventsToActivity()],
+    update: [addEventsToActivity()],
+    patch: [addEventsToActivity()],
     remove: []
   },
 
