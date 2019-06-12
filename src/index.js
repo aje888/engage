@@ -2,7 +2,7 @@
 const logger = require('./logger');
 const app = require('./app');
 const port = app.get('port');
-const server = app.listen(port);
+const server = port === '' ? app.listen() : app.listen(port);
 
 process.on('unhandledRejection', (reason, p) =>
   logger.error('Unhandled Rejection at: Promise ', p, reason)
