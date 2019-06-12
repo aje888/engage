@@ -52,7 +52,7 @@ module.exports = {
           description: "Event end date."
         },
 
-        ventIsInternal: {
+        EventIsInternal: {
           type: String,
           description: "Indicates if the event is a commmunity Event or not."
         },

@@ -18,8 +18,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       const events = await app.service('events').find({
         query: {
           $or: [
-            { EventHubId: activity.EventHubId },
-            { EventHubHashtags: activity.EventHubHashtags }
+            { ID: activity.EventHubId }
           ]
         }
       });
