@@ -49,7 +49,7 @@ app.configure(socketio(socketio_middleware));
 // Configure other middleware (see `middleware/index.js`)
 app.configure(express_middleware);
 
-const swagger_host = app.get('port') === '' ? app.get('host') : app.get('host')+":"+app.get('port');
+const swagger_host = process.env.NODE_ENV === 'production' ? app.get('host') : app.get('host')+":"+app.get('port');
 
 app.configure(swagger({
     docsPath: '/docs',
