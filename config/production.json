@@ -1,4 +1,5 @@
 {
   "host": "capcsrweb.azurewebsites.net",
+  "port": "PORT",
   "scheme": "https"
 }
