@@ -60,8 +60,8 @@ app.configure(swagger({
         description: 'A description',
         version: '0.0.1',
       },
-      host: 'capcsrweb.azurewebsites.net',
-      schemes: ['https']
+      host: app.get('host')+":"+app.get('port'),
+      schemes: [app.get('scheme')]
     },
   }));
 

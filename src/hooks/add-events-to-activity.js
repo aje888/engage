@@ -16,6 +16,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
       // We'll also pass the original `params` to the service call
       // so that it has the same information available (e.g. who is requesting it)
       const events = await app.service('events').find({
+        paginate: false,
         query: {
           $or: [
             { ID: activity.EventHubId }
