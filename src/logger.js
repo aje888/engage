@@ -29,6 +29,7 @@ const myFormat = format.printf((info) => {
 const logger = createLogger({
   levels: myCustomLevels.levels,
   format: format.combine(
+    format.splat(),
     format.timestamp(),
     myFormat,
     format.colorize()
@@ -52,6 +53,7 @@ if (process.env.NODE_ENV !== 'production') {
   logger.add(new transports.Console({
   level: 'silly',
   format: format.combine(
+    format.splat(),
     format.timestamp(),
     myFormat,
     format.colorize()

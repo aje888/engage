@@ -1,4 +1,5 @@
 {
-  "host": "feathers-chat-app.feathersjs.com",
-  "port": "PORT"
+  "host": "capcsrweb.azurewebsites.net",
+  "port": "443",
+  "scheme": "https"
 }
