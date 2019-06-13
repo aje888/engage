@@ -19,12 +19,12 @@ module.exports = function(io) {
         socket.feathers.userName = 'Anonymous';
       }
 
-      if( ! socket.feathers.userName.includes('@capgemini.com')) {
+  /*    if( ! socket.feathers.userName.includes('@capgemini.com')) {
         // If the user isn't @capgemini.com then we're not interested.
         return next(new Error("User >" + socket.feathers.userName + "< denied socket connection. "));
       }
-      else {
+      else {*/
         return next();
-      }
+  /*    }*/
   });
 };
