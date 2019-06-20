@@ -25,7 +25,7 @@ module.exports = {
       },
       Type: {
         type: "String",
-        enum: ['Charity', 'Mentoring'],
+        enum: ['Charity', 'Mentoring', 'Education'],
         required: true
       },
       LogoLink: {
