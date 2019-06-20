@@ -21,7 +21,7 @@ const addActivity = activity => {
                         <span class="image">
                           <img src="images/capimage.jpg" alt="" />
                         </span>
-                        <a href="event1.html">
+                        <a href="event.html?activity_id=${activity._id}">
                           <h2 class="arrow">${activity.Name}</h2>
                           <div class="content">
                             <h6>${activity.Name}</h6>
@@ -37,7 +37,7 @@ const showActivities = async () => {
   const activities = await client.service('activity').find({
     query: {
      // $sort: { createdAt: -1 },
-      $limit: 5
+      $limit: 10
     }
   });
 
@@ -45,3 +45,4 @@ const showActivities = async () => {
 };
 
 showActivities();
+

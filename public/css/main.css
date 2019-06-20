@@ -333,6 +333,15 @@ font-family: 'Arial Narrow', sans-serif;
   width: 75%;
 }
 
+.leftSmall {
+	width: 25%
+}
+
+.rightBig {
+  width: 75%;
+  right: 0px;
+}
+
 .right {
   width: 25%;
   right: 0px;
