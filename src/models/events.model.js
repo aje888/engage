@@ -52,7 +52,7 @@ module.exports = {
           description: "Event end date."
         },
 
-        ventIsInternal: {
+        EventIsCommunity: {
           type: String,
           description: "Indicates if the event is a commmunity Event or not."
         },
@@ -75,6 +75,16 @@ module.exports = {
         LinkToGroupID: {
           type: String,
           description: "A URL to the Event group."
+        },
+
+        Created: {
+          type: String,
+          description: "The person who created the event item."
+        },
+
+        Hashtag1: {
+          type: String,
+          description: "The hashtag provided by the creator."
         }
       },
       { versionKey: false }
