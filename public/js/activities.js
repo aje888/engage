@@ -60,8 +60,10 @@ const setLoginModel = async () => {
 
   // When the user clicks on the button, open the modal 
   btn.onclick = function() {
+    $("#wrapper").toggleClass("toggled");
     modal.style.display = "block";
     emailButton.innerHTML="Send";
+    return false;
   }
 
   // When the user clicks on <span> (x), close the modal
