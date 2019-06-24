@@ -58,18 +58,41 @@ const addActivity = activity => {
 								</div></div>
 								<div class="column rightBig">
 								<h3>About</h3>
-								<p>${activity.description}</p>
+								<p>${activity.Description}</p>
+                <h3 id="eventHeader">Related Events</h3>
+                <div id="eventDiv" class="events"></div>
 							</div>
 						</div>
 					</div>
 				</div>`);
 };
 
+const showEvents = async events => {
+
+  var eventDiv = $("#eventDiv");
+
+  events.forEach(event => eventDiv.append(`<p>Title: <b>${event.Title}</b>. Where: <b>${event.Town}</b>. When: <b>${event.EventStart}</b>. <a href="${event.LinkToEvent}">Attend</a></p>`));
+}
+
 // Shows the current activity
 const showActivities = async () => {
   const activity = await client.service('activity').get(findGetParameter("activity_id"));
 
   addActivity(activity);
+
+  if( activity.events.length > 0 ) {
+    showEvents(activity.events);
+  }
+  else {
+    var eventsHeader = document.getElementById("eventHeader");
+
+    eventsHeader.style.display = "none";
+
+    var eventDiv = document.getElementById("eventDiv");
+
+    eventDiv.style.display = "none";
+  }
 };
 
 showActivities();
+
