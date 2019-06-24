@@ -99,9 +99,7 @@ const setUserName = async () => {
   $.get("/.auth/me", function(data, status){
     if( status === 'success') {
 
-      const userInfo = JSON.parse(data);
-
-      var firstName = userInfo[0].user_claims.find(element => element.typ.includes("givenname")).val;
+      var firstName = data[0].user_claims.find(element => element.typ.includes("givenname")).val;
 
       btn.innerHTML = "Hi " + firstName;
     }
