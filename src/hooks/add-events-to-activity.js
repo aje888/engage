@@ -19,7 +19,8 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         paginate: false,
         query: {
           $or: [
-            { ID: activity.EventHubId }
+            { _id: activity.EventHubId },
+            { Hashtag1: activity.TwitterHashtags }
           ]
         }
       });
