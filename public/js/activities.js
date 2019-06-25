@@ -19,7 +19,7 @@ const addActivity = activity => {
   const tiles = $('.tiles');
   tiles.append(`<article class="style1">
                         <span class="image">
-                          <img src="images/capimage.jpg" alt="" />
+                          <img src="images/capgemini.jpg" alt="" />
                         </span>
                         <a href="event.html?activity_id=${activity._id}">
                           <h2 class="arrow">${activity.Name}</h2>

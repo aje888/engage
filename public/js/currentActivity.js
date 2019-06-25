@@ -32,19 +32,11 @@ const addActivity = activity => {
   tiles.append(`<div id="page-content-wrapper">
 					<div class="container-fluid">
 						<div class="row">
-						<h1>${activity.Name}</h1>
+						<h2>${activity.Name}</h2>
 						</div>
 						<div class="row">
-							<div class="column left">
-								<img src="images/degappslide.jpg" style="width: 100%">
-							</div>
-							<div class="column right">
-								<div class="row">
-								<a href="https://twitter.com/intent/tweet?button_hashtag=${activity.TwitterHashtags}&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet ${activity.TwitterHashtags}</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-								</div>
-								<div class="row">
-								<a href="signup.html"><h3>Sign Up!</h3></a>
-								</div>
+							<div>
+								<img src="images/capgemini2.jpg" style="width: 100%">
 							</div>
 						</div>
 						<div class="row">
@@ -54,11 +46,16 @@ const addActivity = activity => {
 									<p>${activity.ContactList}</p>
 								</div>
 								<div class="row">
-								<a class="twitter-timeline" href="https://twitter.com/Capgemini?ref_src=twsrc%5Etfw">Tweets by Capgemini</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>						
-								</div></div>
+									<a class="twitter-timeline" data-height="500" href="https://twitter.com/Capgemini?ref_src=twsrc%5Etfw">Tweets by Capgemini</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>								</div></div>
 								<div class="column rightBig">
+								<div class="row">
 								<h3>About</h3>
 								<p>${activity.description}</p>
+								</div>
+								<div class="row">
+										<a href="https://twitter.com/intent/tweet?button_hashtag=${activity.TwitterHashtags}&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet ${activity.TwitterHashtags}</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+										<a href="mailto:izzie.kent@capgemini.com"><h2>Sign Up!</h2></a>
+								</div>
 							</div>
 						</div>
 					</div>
