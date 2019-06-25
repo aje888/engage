@@ -50,23 +50,46 @@ const addActivity = activity => {
 								<div class="column rightBig">
 								<div class="row">
 								<h3>About</h3>
-								<p>${activity.description}</p>
+								<p>${activity.Description}</p>
 								</div>
 								<div class="row">
 										<a href="https://twitter.com/intent/tweet?button_hashtag=${activity.TwitterHashtags}&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet ${activity.TwitterHashtags}</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 										<a href="mailto:izzie.kent@capgemini.com"><h2>Sign Up!</h2></a>
 								</div>
+								<h3 id="eventHeader">Related Events</h3>
+								<div id="eventDiv" class="events"></div>
 							</div>
 						</div>
 					</div>
 				</div>`);
 };
 
+const showEvents = async events => {
+
+  var eventDiv = $("#eventDiv");
+
+  events.forEach(event => eventDiv.append(`<p>Title: <b>${event.Title}</b>. Where: <b>${event.Town}</b>. When: <b>${event.EventStart}</b>. <a href="${event.LinkToEvent}">Attend</a></p>`));
+}
+
 // Shows the current activity
 const showActivities = async () => {
   const activity = await client.service('activity').get(findGetParameter("activity_id"));
 
   addActivity(activity);
+
+  if( activity.events.length > 0 ) {
+    showEvents(activity.events);
+  }
+  else {
+    var eventsHeader = document.getElementById("eventHeader");
+
+    eventsHeader.style.display = "none";
+
+    var eventDiv = document.getElementById("eventDiv");
+
+    eventDiv.style.display = "none";
+  }
 };
 
 showActivities();
+
